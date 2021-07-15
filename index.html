@@ -2,25 +2,9 @@
 <html>
 <!--
 Welcome to the source code for gethttpsforfree.com!
-
-This is an open source website that is meant to be auditable. Please read
-through the code to see what's going on!
-
-Original files:
-    /index.html - This page
-    /js/index.js - The interaction behavior for this page
-
-Third-party libraries (all from asn1.js package):
-    /js/asn1js/int10.js - Needed for asn1.js
-    /js/asn1js/hex.js - Convert hex to binary array
-    /js/asn1js/base64.js - Convert base64 to binary array
-    /js/asn1js/asn1.js - Parse ASN.1 format used in x.509 certificates
-    /js/asn1js/LICENSE - The license for the above asn1.js files
-
-Released under MIT License. Enjoy!
 -->
 <head>
-    <title>Get HTTPS for free!</title>
+    <title>BuyPass SSL Online!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
         *{box-sizing:border-box;}
@@ -63,55 +47,18 @@ Released under MIT License. Enjoy!
     <script src="js/asn1js/asn1.js"></script>
 </head>
 <body>
-
-    <!--#############-->
-    <!--##  Intro  ##-->
-    <!--#############-->
     <h1>
-        Get HTTPS for free!
-        <span class="small">Update: Added wildcard certificate support!</span>
+       BuyPass SSL 
     </h1>
     <h2 id="digest_error" class="error" style="display:none;">
         ERROR: Your browser is not compatible with this website (this website
         needs WebCryptoAPI's crypto.subtle.digest()). Please upgrade to a modern
         browser (Firefox, Chrome, Safari, Edge, IE 11+).
     </h2>
-    <div>
-        You can now get free https certificates (incuding wildcard certificates)
-        from the non-profit certificate authority
-        <a href="https://letsencrypt.org/" target="_blank" rel="noopener noreferrer">Let's Encrypt</a>!
-        This is a website that will take you through the manual steps to get your free
-        https certificate so you can make your own website use https! This website is
-        <a href="https://github.com/diafygi/howtogetfreehttps" target="_blank" rel="noopener noreferrer">open source</a>
-        and <strong>NEVER</strong> asks for your private keys. Never trust a website
-        that asks for your private keys!
-        <!--<a href="revoke.html">Click here</a> to revoke certs.-->
-    </div>
-
-    <div>
-        <b>NOTE: This website is for people who know how to generate certificate signing
-        requests (CSRs)!</b> If you're not familiar with how to do this, please use the
-        official Let's Encrypt <a href="https://github.com/certbot/certbot" target="_blank" rel="noopener noreferrer">official client</a>
-        that can automatically issue and install https certificates for you. This
-        website is designed for people who know what they are doing and just want to get
-        their free https certificate.
-    </div>
-
-    <div>
-        If you need to renew a certificate, simply complete these steps below again.
-    </div>
-
     <hr/>
-
-    <!--############################-->
-    <!--##  Step 1: Account Info  ##-->
-    <!--############################-->
     <h2>Step 1: Account Info</h2>
     <div>
-        Let's Encrypt requires that you register an account email and public key before
-        issuing a certificate. The email is so that they can contact you if needed, and
-        the public key is so you can securely sign your requests to issue/revoke/renew
-        your certificates. <i><b>Keep your account private key secret!</b> Anyone who has it
+        <i><b>Keep your account private key secret!</b> Anyone who has it
         can impersonate you when making requests to Let's Encrypt!</i>
     </div>
 
@@ -152,10 +99,6 @@ Released under MIT License. Enjoy!
     </form>
 
     <hr/>
-
-    <!--###########################################-->
-    <!--##  Step 2: Certificate Signing Request  ##-->
-    <!--###########################################-->
     <h2>Step 2: Certificate Signing Request</h2>
     <div>
         This is the certificate signing request (CSR) that you send to Let's Encrypt
@@ -205,16 +148,11 @@ Released under MIT License. Enjoy!
             <span id="validate_csr_status" style="display:none;"></span>
         </div>
     </form>
-
     <hr/>
-
-    <!--#############################-->
-    <!--##  Step 3: Sign Requests  ##-->
-    <!--#############################-->
     <h2>Step 3: Sign API Requests<span id="step3_pending"> (waiting...)</span></h2>
     <div id="step3" style="display:none;">
         <div>
-            Let's Encrypt requires that you sign all of your requests to them with your
+            BuyPass requires that you sign all of your requests to them with your
             account private key. Below are the requests that you will need to sign. The
             commands to do this are generated below so you can copy-and-paste them into your
             terminal. <i>Be sure to change the account private key location so it points to
@@ -246,7 +184,7 @@ Released under MIT License. Enjoy!
                     </ol>
                 </div>
                 <label>
-                    Accept the Let's Encrypt
+                    Accept the BuyPass
                     <a id="tos" href="#" target="_blank" rel="noopener noreferrer">terms and conditions</a>:
                 </label><br/>
                 <input id="registration_sig_cmd" type="text" value="echo ..." readonly/><br/>
@@ -257,8 +195,6 @@ Released under MIT License. Enjoy!
                 <span id="validate_registration_sig_status"></span>
             </div>
         </form>
-
-        <!-- Account Update Contact Email -->
         <form id="validate_update">
             <div class="field">
                 <label for="howto_update" class="help">(how do I do this?)</label>
@@ -291,8 +227,6 @@ Released under MIT License. Enjoy!
                 <span id="validate_update_sig_status"></span>
             </div>
         </form>
-
-        <!-- New Order Creation -->
         <form id="validate_order">
             <div class="field">
                 <label for="howto_order" class="help">(how do I do this?)</label>
@@ -327,19 +261,15 @@ Released under MIT License. Enjoy!
     </div>
 
     <hr/>
-
-    <!--##########################-->
-    <!--##  Step 4: Challenges  ##-->
-    <!--##########################-->
     <h2>Step 4: Verify Ownership<span id="step4_pending"> (waiting...)</span></h2>
     <div id="step4" style="display:none;">
         <div>
-            Let's Encrypt requires you prove you own the domains you have in your CSR. You
+            BuyPass requires you prove you own the domains you have in your CSR. You
             can do this by serving a specific file at a specific url under your domains.
             Below are the files you need to serve along with some copy-and-paste commands
             you can run on your website to start serving the file. Once you are serving
             the file on your website, click "I'm now running this on...". After that, you
-            need to tell Let's Encrypt to check the above files to verify ownership of your
+            need to tell BuyPass to check the above files to verify ownership of your
             domains. This request needs to be signed with your account private key. Below
             are the verification requests that you will need to sign. The commands to do
             this are generated below so you can copy-and-paste them into your terminal.
@@ -454,7 +384,7 @@ Released under MIT License. Enjoy!
                                     <label class="howto_python_sig_label help">(how do I do this?)</label>
                                     <input type="checkbox" class="howto_python_sig help-checkbox"/>
                                     <div class="help-content">
-                                        This step tells Let's Encrypt that you're serving
+                                        This step tells BuyPass that you're serving
                                         the correct data for this challenge on your server.
                                         When Let's Encrypt receives this submission, they
                                         will make a request to your server to verify you are
@@ -572,9 +502,9 @@ Released under MIT License. Enjoy!
                                     <label class="howto_file_sig_label help">(how do I do this?)</label>
                                     <input type="checkbox" class="howto_file_sig help-checkbox"/>
                                     <div class="help-content">
-                                        This step tells Let's Encrypt that you're serving
+                                        This step tells BuyPass that you're serving
                                         the correct data for this challenge on your server.
-                                        When Let's Encrypt receives this submission, they
+                                        When BuyPass receives this submission, they
                                         will make a request to your server to verify you are
                                         serving the data correctly.<br/>
                                         <br/>
@@ -607,7 +537,7 @@ Released under MIT License. Enjoy!
                                     <label class="howto_recheck_auth_file_sig_label help">(how do I do this?)</label>
                                     <input type="checkbox" class="howto_recheck_auth_file_sig help-checkbox"/>
                                     <div class="help-content">
-                                        This step checks to see if Let's Encrypt has marked the
+                                        This step checks to see if BuyPass has marked the
                                         challenge for this domain as complete.<br/>
                                         <br/>
                                         How to generate this signature:<br/>
@@ -685,9 +615,9 @@ Released under MIT License. Enjoy!
                                     <label class="howto_dns_sig_label help">(how do I do this?)</label>
                                     <input type="checkbox" class="howto_dns_sig help-checkbox"/>
                                     <div class="help-content">
-                                        This step tells Let's Encrypt that you're serving
+                                        This step tells BuyPass that you're serving
                                         the correct data for this challenge on your server.
-                                        When Let's Encrypt receives this submission, they
+                                        When BuyPass receives this submission, they
                                         will make a request to your server to verify you are
                                         serving the data correctly.<br/>
                                         <br/>
@@ -720,7 +650,7 @@ Released under MIT License. Enjoy!
                                     <label class="howto_recheck_auth_dns_sig_label help">(how do I do this?)</label>
                                     <input type="checkbox" class="howto_recheck_auth_dns_sig help-checkbox"/>
                                     <div class="help-content">
-                                        This step checks to see if Let's Encrypt has marked the
+                                        This step checks to see if BuyPass has marked the
                                         challenge for this domain as complete.<br/>
                                         <br/>
                                         How to generate this signature:<br/>
@@ -760,7 +690,7 @@ Released under MIT License. Enjoy!
                 <label for="howto_finalize" class="help">(how do I do this?)</label>
                 <input id="howto_finalize" type="checkbox" class="help-checkbox"/>
                 <div class="help-content">
-                    This command finalizes your order and tells Let's Encrypt to
+                    This command finalizes your order and tells BuyPass to
                     generate your new certificate.<br/>
                     <br/>
                     How to generate this signature:<br/>
@@ -852,14 +782,10 @@ Released under MIT License. Enjoy!
     </div>
 
     <hr/>
-
-    <!--#################################-->
-    <!--##  Step 5: Issue Certificate  ##-->
-    <!--#################################-->
     <h2>Step 5: Install Certificate (<span id="step5_pending">waiting...</span>)</h2>
     <div id="step5" style="display:none;">
         <div>
-            Congratulations! Let's Encrypt has issued you a certificate for your domains!
+            Congratulations! BuyPass has issued you a certificate for your domains!
             Below is the signed certificate you can use for your website.
         </div>
 
@@ -976,7 +902,7 @@ scp intermediate.pem root@foo.com:/etc/ssl/certs/intermediate.pem
     <hr/>
 
     <div class="footer">
-        This website is static, so it can be saved and loaded locally. Just right-click and "Save Page As.."!<br/>
+        InfinitzHost doesn't own this source code, has been edited for use with BuyPass
         Released under MIT license |
         Source code: <a href="https://github.com/diafygi/gethttpsforfree" target="_blank" rel="noopener noreferrer">https://github.com/diafygi/gethttpsforfree</a>
     </div>
