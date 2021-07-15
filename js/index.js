@@ -251,7 +251,7 @@ function populateDirectory(){
         document.getElementById("validate_cert").addEventListener("submit", getCertificate);
     };
     xhr.onerror = function(){
-        fail(document.getElementById("validate_account_status"), "Let's Encrypt appears to be down. Please try again later.");
+        fail(document.getElementById("validate_account_status"), "CA seems to be down, Try again later");
     };
     xhr.send();
 }
